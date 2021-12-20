@@ -14,6 +14,10 @@ describe("Calculator", () => {
             // explain our expectation
             expect(addition(42, 31)).toBe(73);
         })
+        test("should return 'No parameters'", () => {
+            // explain our expectation
+            expect(addition()).toBe("No parameters");
+        })
     })
     // create a second level describe of Substraction function
     describe("Substraction function", () => {
