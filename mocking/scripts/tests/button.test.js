@@ -10,9 +10,24 @@ By adding a @jest-environment docblock at the top of the file
 // import the buttonClick function that we're testing from the button.js file
 const buttonClick = require("../button");
 
+/*
 // set up a mock DOM
 beforeEach(() => {
     document.body.innerHTML = "<p id='par'></p>"
+});
+*/
+
+// Load the entire HTML page and attach it to the mock DOM
+beforeEach(() => {
+    /* Add the Node fs module (a file system handling module built into  Node 
+        that allows us to open read and write files) */
+    let fs = require("fs");
+    /* Use fs to read the contents of HTML file and store it in fileContents variable */
+    let fileContents = fs.readFileSync("./mocking/index.html", "utf-8");
+    /* Attach the fileContents to the DOM */
+    document.open();
+    document.write(fileContents);
+    document.close();
 });
 
 // Create the actual test
