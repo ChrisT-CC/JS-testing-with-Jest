@@ -36,4 +36,11 @@ describe("DOM tests", () => {
         buttonClick();
         expect(document.getElementById("par").innerHTML).toEqual("You Clicked");
     });
+    /* Add another test to confirm reading the contents of index.html */
+    test("h1 should exist", () => {
+        /* This test gets all of the h1 tags and stores them in a special kind of array. 
+        If the h1 exists, then the length of the array will be 1. 
+        If two h1 tags existed the length would be two, and so on */
+        expect(document.getElementsByTagName("h1").length).toBe(1);
+    });
 });
